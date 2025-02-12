@@ -16,20 +16,24 @@
 // Avete anche l’array dei post che vi abbiamo fornito, salvatelo da qualche parte. Ci servirà per i prossimi step. Per oggi vi può servire in caso vogliate provare i bonus.
 
 // Bonus
-// Provare a restituire la lista dei post dalla rotta index, in formato json
-// Provare a restituire un singolo post dalla rotta show, sempre in formato json
+//- Provare a restituire la lista dei post dalla rotta index, in formato json
+//- Provare a restituire un singolo post dalla rotta show, sempre in formato json
 
 const express = require('express');
 const app = express();
 const port = 3000;
 
-app.get('/', (req, res) => {
-    res.send('pippo');
-});
+//importo il router
+const routerImp = require('./routers/posts');
+app.use('/posts', routerImp);
+
+// non scordartelo !
+app.use(express.static("public"));
+
+// app.get('/', (req, res) => {
+//     res.send('pippo');
+// });
 
 app.listen(port, () => {
     console.log(port);
 });
-
-//importo il router
-const routerImp = require('./routers/posts');
