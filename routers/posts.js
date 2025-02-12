@@ -75,7 +75,7 @@ const posts = [
 
 // index per vederli tutti
 router.get('/', (req, res) => {
-    res.send(`Lista post`);
+    res.json(posts);
 });
 
 // show per vederne uno solo
