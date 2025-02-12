@@ -75,27 +75,28 @@ const posts = [
 
 // index per vederli tutti
 router.get('/', (req, res) => {
-    res.json(posts);
+  res.json(posts);
 });
 
 // show per vederne uno solo
 router.get('/:id', (req, res) => {
-    res.send(`Singolo post: ${req.params.id}`);
+  let post = posts.find(post => post.id === req.params.id);
+  res.json(post);
 });
 
 // store (create lo vedremo più avanti) per crearne uno //! CERCA DIFFERENZE STORE E CREATE.
 router.post('/', (req, res) => {
-    res.send(`Nuovo post`);
+  res.send(`Nuovo post`);
 });
 
 // update per modificarne uno
 router.put('/:id', (req, res) => {
-    res.send(`Modifica del post: ${req.params.id}`);
+  res.send(`Modifica del post: ${req.params.id}`);
 });
 
 // destroy per cancellarlo
 router.delete('/:id', (req, res) => {
-    res.send(`Eliminazione post: ${req.params.id}`);
+  res.send(`Eliminazione post: ${req.params.id}`);
 });
 
 // per esportare il router
