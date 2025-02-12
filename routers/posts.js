@@ -79,9 +79,15 @@ router.get('/', (req, res) => {
 });
 
 // show per vederne uno solo
-router.get('/:id', (req, res) => { 
-  let post = posts.find(post => post.id === parseInt(req.params.id)); //- converto la stringa "req.params.id" in numero
+router.get('/:id', (req, res) => {
+  
+  // alternativa
+  let id = parseInt(req.params.id);
+
+  // converto la stringa "req.params.id" in numero (ancora meglio Number() se ci sono decimali)
+  let post = posts.find(post => post.id === id);
   res.json(post);
+
 });
 
 // store (create lo vedremo più avanti) per crearne uno //! CERCA DIFFERENZE STORE E CREATE.
