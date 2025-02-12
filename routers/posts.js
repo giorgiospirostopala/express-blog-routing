@@ -79,8 +79,8 @@ router.get('/', (req, res) => {
 });
 
 // show per vederne uno solo
-router.get('/:id', (req, res) => {
-  let post = posts.find(post => post.id === req.params.id);
+router.get('/:id', (req, res) => { 
+  let post = posts.find(post => post.id === parseInt(req.params.id)); //- converto la stringa "req.params.id" in numero
   res.json(post);
 });
 
